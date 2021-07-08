@@ -8,6 +8,10 @@ test('creates managers object', () => {
     expect(manager.id).toEqual(expect.any(String));
     expect(manager.email).toEqual(expect.any(String));
     expect(manager.officeNumber).toEqual(expect.any(String));
-    expect(manager.getRole()).toBe('Manager');
+});
 
+
+test('gets managers role', () => {
+    const manager = new Manager('victor', 23, 'email', '512');
+    expect(manager.getRole()).toBe('Manager');
 });
