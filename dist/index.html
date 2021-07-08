@@ -1,6 +1,4 @@
-module.exports = htmltemplate => {
-    const {Manager, Engineer, Intern, Project} = htmltemplate;
-    return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,36 +9,37 @@ module.exports = htmltemplate => {
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>${Project.name}</title>
+
+    <title>Document</title>
 </head>
 
 <body>
     <!-- Header -->
     <nav class="navbar">
         <div class="container-fluid justify-content-around">
-            <a class="navbar-brand" href="#">${Project.name} Team</a>
+            <a class="navbar-brand" href="#">My Team</a>
         </div>
     </nav><br>
     <div class="container-fluid overflow-hidden">
         <!-- Managers card -->
-        <div class="row justify-content-around" id="managers">
+        <div class="row justify-content-around ">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">${Manager.name}</h5>
+                    <h5 class="card-title">Managers Name</h5>
                     <h6 class="card-subtitle mb-2 text-muted">
                         <i class="fas fa-mug-hot"></i> Manager
                     </h6>
                     <ul class="list-group">
                         <li class="list-group-item">
                             <i class="fas fa-id-card"></i>
-                            <span class="id-number">:${Manager.id}</span>
+                            <span class="id-number">:7</span>
                         </li>
                         <li class="list-group-item">
                             <i class="fas fa-phone"></i>
-                            <span class="office-number">:${Manager.officeNumber}</span>
+                            <span class="office-number">:12</span>
                         </li>
                         <li class="list-group-item email-link">
-                            <a href="mailto:${Manager.email}">
+                            <a href="mailto: email">
                                 <i class="fas fa-envelope-open-text"></i> Send Email</a>
                         </li>
                     </ul>
@@ -48,24 +47,24 @@ module.exports = htmltemplate => {
             </div>
         </div><br>
         <!-- Engineers cards -->
-        <div class="row justify-content-around" id="engineers">
+        <div class="row justify-content-around">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">${Engineer.name}</h5>
+                    <h5 class="card-title">Engineers Name</h5>
                     <h6 class="card-subtitle mb-2 text-muted">
                         <i class="fas fa-glasses"></i> Engineer
                     </h6>
                     <ul class="list-group">
                         <li class="list-group-item">
                             <i class="fas fa-id-card"></i>
-                            <span class="id-number">:${Engineer.id}</span>
+                            <span class="id-number">:5</span>
                         </li>
                         <li class="list-group-item email-link">
-                            <a href="${Engineer.github}" target="_blank">
+                            <a href="#github" target="_blank">
                                 <i class="fab fa-github"></i> Github</a>
                         </li>
                         <li class="list-group-item email-link">
-                            <a href="mailto:${Engineer.email}">
+                            <a href="mailto: email">
                                 <i class="fas fa-envelope-open-text"></i> Send Email</a>
                         </li>
                     </ul>
@@ -74,24 +73,24 @@ module.exports = htmltemplate => {
 
         </div><br>
         <!-- Interns cards -->
-        <div class="row justify-content-around" id="interns">
+        <div class="row justify-content-around">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">${Intern.name}</h5>
+                    <h5 class="card-title">Interns Name</h5>
                     <h6 class="card-subtitle mb-2 text-muted">
                         <i class="fas fa-user-graduate"></i> Intern
                     </h6>
                     <ul class="list-group">
                         <li class="list-group-item">
                             <i class="fas fa-id-card"></i>
-                            <span class="id-number">:${Intern.id}</span>
+                            <span class="id-number">:2</span>
                         </li>
                         <li class="list-group-item">
                             <i class="fas fa-school"></i>
-                            <span class="school">:${Intern.school}</span>
+                            <span class="school">:University of Texas</span>
                         </li>
                         <li class="list-group-item email-link">
-                            <a href="mailto: ${Intern.email}">
+                            <a href="mailto: email">
                                 <i class="fas fa-envelope-open-text"></i> Send Email</a>
                         </li>
                     </ul>
@@ -101,5 +100,4 @@ module.exports = htmltemplate => {
     </div>
 </body>
 
-</html>`
-}
+</html>

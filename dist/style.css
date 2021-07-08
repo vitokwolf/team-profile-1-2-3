@@ -1,5 +1,4 @@
-module.exports = () => {
-    return `nav {
+nav {
     background-color: gray;
 }
 .navbar-brand {
@@ -30,5 +29,4 @@ module.exports = () => {
 .school {
     font-weight: bold;
     color: lightseagreen;
-}`
 }
