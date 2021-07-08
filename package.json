@@ -1,0 +1,28 @@
+{
+  "name": "team-profile-1-2-3",
+  "version": "1.0.0",
+  "description": "generate a html that portraits a team plrofile",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitokwolf/team-profile-1-2-3.git"
+  },
+  "author": "VL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitokwolf/team-profile-1-2-3/issues"
+  },
+  "homepage": "https://github.com/vitokwolf/team-profile-1-2-3#readme",
+  "dependencies": {
+    "inquirer": "^8.1.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
