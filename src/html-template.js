@@ -104,7 +104,7 @@ const generateInterns = internsArr => {
 }
 
 module.exports = htmltemplate => {
-    const { managers, engineers, interns, project } = htmltemplate;
+    const { project, managers, engineers, interns } = htmltemplate;
     return `<!DOCTYPE html>
 <html lang="en">
 
