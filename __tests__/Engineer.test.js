@@ -2,7 +2,7 @@ const { test, expect } = require('@jest/globals');
 const Engineer = require('../lib/Engineer');
 
 test('creates managers object', () => {
-    const engineer = new Engineer('name', 23, 'email', 'username');
+    const engineer = new Engineer('name', 23, 'email', 'Engineer','username');
 
     expect(engineer.name).toEqual(expect.any(String));
     expect(engineer.id).toEqual(expect.any(Number));
@@ -11,11 +11,11 @@ test('creates managers object', () => {
 });
 
 test('gets engineer role', () => {
-    const engineer = new Engineer('name', 23, 'email', 'username');
+    const engineer = new Engineer('name', 23, 'email', 'Engineer', 'username');
     expect(engineer.getRole()).toBe('Engineer');
 });
 
 test('gets engineer github link', () => {
-    const engineer = new Engineer('name', 23, 'email', 'username');
+    const engineer = new Engineer('name', 23, 'email', 'Engineer', 'username');
     expect(engineer.getGithub()).toEqual(expect.any(String));
 });

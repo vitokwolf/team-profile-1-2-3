@@ -1,7 +1,7 @@
 const Intern = require('../lib/Intern');
 
 test('creates managers object', () => {
-    const intern = new Intern('name', 23, 'email', 'school');
+    const intern = new Intern('name', 23, 'email','Intern', 'school');
 
     expect(intern.name).toEqual(expect.any(String));
     expect(intern.id).toEqual(expect.any(Number));
@@ -10,11 +10,11 @@ test('creates managers object', () => {
 });
 
 test('gets intern role', () => {
-    const intern = new Intern('name', 23, 'email', 'username');
+    const intern = new Intern('name', 23, 'email', 'Intern', 'school');
     expect(intern.getRole()).toBe('Intern');
 });
 
 test('gets intern github link', () => {
-    const intern = new Intern('name', 23, 'email', 'username');
+    const intern = new Intern('name', 23, 'email', 'Intern', 'school');
     expect(intern.getSchool()).toEqual(expect.any(String));
 });
