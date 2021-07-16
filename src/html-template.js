@@ -100,7 +100,7 @@ const generateEmployee = templateArray => {
         </div><br>
         `;
 };
-
+//  generate the entire HTML
 const generateHtml = htmlTemp => {
     console.log(htmlTemp);
     return `<!DOCTYPE html>
@@ -133,9 +133,10 @@ const generateHtml = htmlTemp => {
 </html>`
 };
 
-const handler = (templateArray) => {
-
+// handler to generate html, write it to an html file and copy the style sheet
+const handler = templateArray => {
     const file = generateHtml(templateArray);
+    console.log('Team Profile has been Created!');
     writeFile(file)
     .then(() =>copyFile())
     .catch(err => {
