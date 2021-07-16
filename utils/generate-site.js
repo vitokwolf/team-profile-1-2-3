@@ -13,10 +13,26 @@ const writeFile = fileContent => {
             // if everything went well, resolve the Promise and send the successful data to the `.then()` method
             resolve({
                 ok: true,
-                message: 'HTML File created!'
+                message: 'File created!'
             });
         });
     });
 };
 
-module.exports = writeFile;
+const copyFile = () => {
+    return new Promise((resolve, reject) => {
+        fs.copyFile('./src/style.css', './dist/style.css', err => {
+            if (err) {
+                console.log(err);
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'Style sheet copied successfully!'
+            });
+        });
+    })
+};
+
+module.exports = { writeFile, copyFile };

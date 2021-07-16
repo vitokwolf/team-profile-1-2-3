@@ -1,50 +1,30 @@
-const writeFile = require('../utils/generate-site');
+const { writeFile, copyFile } = require('../utils/generate-site.js');
 
+// generate employee card
 const generateEmployee = templateArray => {
-    let textString = '';
-    console.log(templateArray);
+    let managerCards = '';
+    let engineerCards = '';
+    let internsCards = '';
+    // itterate thru employee array and create cards for each one
     for (let i = 0; i < templateArray.length; i++) {
 
-        if (templateArray[i].role === "Intern") {
-            var icon = '<i class="fas fa-user-graduate"></i>';
-            var htmlString = `
-            <li class="list-group-item">
-                <i class="fas fa-school"></i>
-                <span class="school">:${school}</span>
-            </li>
-            `;
-        } else if (templateArray[i].role === "Manager") {
-            var icon = '<i class="fas fa-mug-hot"></i>';
-            var htmlString = `
-            <li class="list-group-item">
-                <i class="fas fa-phone"></i>
-                <span class="office-number">:${officeNumber}</span>
-            </li>`;
-        } else {
-            var icon = '<i class="fas fa-glasses"></i>';
-            var htmlString = `
-            <li class="list-group-item email-link">
-                <a href="${github}" target="_blank">
-                <i class="fab fa-github"></i> Github</a>
-            </li>
-            `;
-        }
-
-
-        textString += `
-        <div class="row justify-content-around">         
+        if (templateArray[i].role === "Manager") {
+            managerCards += `      
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">${templateArray[i].name}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">
-                       ${icon} ${templateArray[i].role}
+                        <i class="fas fa-mug-hot"></i> ${templateArray[i].role}
                     </h6>
                     <ul class="list-group">
                         <li class="list-group-item">
                             <i class="fas fa-id-card"></i>
                             <span class="id-number">: ${templateArray[i].id}</span>
                         </li>
-                        ${htmlString}
+                        <li class="list-group-item">
+                            <i class="fas fa-phone"></i>
+                            <span class="office-number">: ${templateArray[i].officeNumber}</span>
+                        </li>
                         <li class="list-group-item email-link">
                             <a href="mailto:${templateArray[i].email}">
                                 <i class="fas fa-envelope-open-text"></i> Send Email</a>
@@ -52,10 +32,73 @@ const generateEmployee = templateArray => {
                     </ul>
                 </div>
             </div>
-        </div>
+            `;          
+        } else if (templateArray[i].role === "Engineer") {
+           engineerCards+= `
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${templateArray[i].name}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <i class="fas fa-glasses"></i> ${templateArray[i].role}
+                    </h6>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <i class="fas fa-id-card"></i>
+                            <span class="id-number">:${templateArray[i].id}</span>
+                        </li>
+                        <li class="list-group-item email-link">
+                            <a href="${templateArray[i].getGithub()}" target="_blank">
+                                <i class="fab fa-github"></i> Github</a>
+                        </li>
+                        <li class="list-group-item email-link">
+                            <a href="mailto:${templateArray[i].email}">
+                                <i class="fas fa-envelope-open-text"></i> Send Email</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           `;
+        } else {
+           internsCards += `
+           <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${templateArray[i].name}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <i class="fas fa-user-graduate"></i> ${templateArray[i].role}
+                    </h6>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <i class="fas fa-id-card"></i>
+                            <span class="id-number">:${templateArray[i].id}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-school"></i>
+                            <span class="school">:${templateArray[i].school}</span>
+                        </li>
+                        <li class="list-group-item email-link">
+                            <a href="mailto: ${templateArray[i].email}">
+                                <i class="fas fa-envelope-open-text"></i> Send Email</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           `;
+        };
+    };
+    return `
+         <!-- Managers card -->
+        <div class="row justify-content-around">
+            ${managerCards}
+        </div><br>
+        <!-- Engineers cards -->
+        <div class="row justify-content-around">
+            ${engineerCards}
+        </div><br>
+        <!-- Interns cards -->
+        <div class="row justify-content-around">
+            ${internsCards}
+        </div><br>
         `;
-    }
-    return textString;
 };
 
 const generateHtml = htmlTemp => {
@@ -81,8 +124,9 @@ const generateHtml = htmlTemp => {
             <a class="navbar-brand" href="#">My Team</a>
         </div>
     </nav><br>
+    <!-- Team Cards -->
     <div class="container-fluid overflow-hidden">
-         ${generateEmployee(templateArray)}
+            ${generateEmployee(htmlTemp)}
     </div>
 </body>
 
@@ -91,10 +135,12 @@ const generateHtml = htmlTemp => {
 
 const handler = (templateArray) => {
 
-    const file = generateIndex(templateArray)
-    writeFile(file);
-    console.log('success!')
-
+    const file = generateHtml(templateArray);
+    writeFile(file)
+    .then(() =>copyFile())
+    .catch(err => {
+        console.log(err);
+    })   
 }
 
 module.exports = handler;

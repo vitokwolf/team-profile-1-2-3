@@ -1,0 +1,32 @@
+nav {
+    background-color: gray;
+}
+.navbar-brand {
+    color:crimson;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.card {
+    width: 18rem;
+    background-color: powderblue;
+    text-align: center;
+}
+.card-title {
+    color: blue;
+}
+.id-number {
+    font-weight: bold;
+    color: crimson;
+}
+.office-number {
+    font-weight: bold;
+    color: darkcyan;
+}
+.email-link {
+    font-style: italic;
+    font-weight: bold;
+}
+.school {
+    font-weight: bold;
+    color: lightseagreen;
+}
