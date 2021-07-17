@@ -102,7 +102,7 @@ const generateEmployee = templateArray => {
 };
 //  generate the entire HTML
 const generateHtml = htmlTemp => {
-    console.log(htmlTemp);
+    // console.log(htmlTemp);
     return `<!DOCTYPE html>
 <html lang="en">
 
